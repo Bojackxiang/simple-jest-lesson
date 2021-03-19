@@ -1,8 +1,6 @@
-const add = () => {
+export const add = () => {
     return 'hello'
 }
 
-module.exports = {
-    add, 
-}
+
 
