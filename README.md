@@ -1,22 +1,29 @@
-#### Jest 的简单配置 
+### 匹配器
 
-`npx jest --init ` 
+toBe 就是一个匹配器
 <br>
-`npx jest --coverage `
-<br>
-`npm install @babel/core@7.4.5 @babel/preset-env@7.4.5 -D`
-<br>
-.babelrc
 ```json
-{
-    "presets":[
-        [
-                "@babel/preset-env",{
-                "targets":{
-                    "node":"current"
-                }
-            }
-        ]
-    ]
-}
+"scripts": {
+    "test": "jest --watchAll",
+    "start": "node index.js"
+  },
 ```
+<br>
+expect().toEqual() 只会匹配内容，而不会匹配引用， 否则会报错，所以说在object 里面的时候，全部都适用 toEqual()
+
+### 匹配起 list
+• toBe()
+• toEqual()
+• toBeNull()
+• toBeNull()
+• toBeUndefined()
+• toBeTruthy();
+• toBeFalsy();
+• not.toBe()
+• toBeGreaterThan(x)
+• toBeGreaterThanOrEqual(x)
+• toBeLessThan(x)
+• toMatch(x)
+• toContain(x)
+• toThrow()
+
