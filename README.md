@@ -1,29 +1,22 @@
-### 匹配器
+### 异步测试
+#### Isue: The async function is not run until the call back, the process is finished. 
+Solve: use done to solve the issue. 
 
-toBe 就是一个匹配器
-<br>
-```json
-"scripts": {
-    "test": "jest --watchAll",
-    "start": "node index.js"
-  },
-```
-<br>
-expect().toEqual() 只会匹配内容，而不会匹配引用， 否则会报错，所以说在object 里面的时候，全部都适用 toEqual()
+#### Catch is special case 
+use `expect.assertions(1);`
+if use catch, you need to use 
+**expect.asseration(1) **
+to make sure at least one expect should be run
 
-### 匹配起 list
-• toBe()
-• toEqual()
-• toBeNull()
-• toBeNull()
-• toBeUndefined()
-• toBeTruthy();
-• toBeFalsy();
-• not.toBe()
-• toBeGreaterThan(x)
-• toBeGreaterThanOrEqual(x)
-• toBeLessThan(x)
-• toMatch(x)
-• toContain(x)
-• toThrow()
+#### expect().resolves.toMatchObject()
+Check if the data return contains this block of data
 
+#### expect().rejects.toThrow()
+This request will throw an error, a way to relace the expect.asserations(1)
+
+
+#### await 
+Just added the await before the expect for handing function that returns promise 
+
+#### try catch 
+ add `expect.assertions(1)` just in case

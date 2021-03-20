@@ -1,15 +1,17 @@
-export const add = (x, y) => {
-    return x + y
-}
+import axios from "axios";
 
-export const toEqual = () => {
-    return {name: 'alex'}
-}
+export const fetchData = (fn) => {
+  axios
+    .get("https://jsonplaceholder.typicode.com/todos/1")
+    .then((resp) => fn(resp.data));
+};
 
-export const toThrow = () => {
-    throw new Error('this is a error')
-}
+export const returnPromise = (fn) => {
+    return axios
+      .get("https://jsonplaceholder.typicode.com/todos/1")
+  };
 
-
-
-
+  export const notFoundTest = () => {
+    return axios
+      .get("https://jsonplaceholder.typicode.com/todos/x")
+  };

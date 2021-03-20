@@ -1,88 +1,66 @@
-import { add, toEqual, toThrow } from "./index";
+import { fetchData, returnPromise, notFoundTest } from "./index";
 
-test("should return a string say hello", () => {
-  expect(add(1, 2)).toBe(3);
+test("fetch data", (done) => {
+  fetchData((data) => {
+    expect(data).not.toBeUndefined();
+    done();
+  });
 });
 
-test("toEqual", () => {
-  const name = { name: "alex" };
-  expect(toEqual()).toEqual(name);
+test("promise", () => {
+  return returnPromise().then((data) => {
+    expect(data).not.toBeUndefined();
+  });
 });
 
-test("toBeNull", () => {
-  const test = null;
-  expect(test).toBeNull();
+test("404 test", () => {
+  expect.assertions(1);
+  return notFoundTest().catch((e) => {
+    expect(e.message.indexOf("404") > -1).toBe(true);
+  });
 });
 
-test("toBeUndefined", () => {
-  const test = undefined;
-  expect(test).toBeUndefined();
+test("resolve test", () => {
+  expect.assertions(1);
+  return expect(returnPromise()).resolves.toMatchObject({
+    data: {
+      id: 1, // if contains id is good enough
+    },
+  });
 });
 
-/**
- * Boolean
- */
-
-test("toBeFalsey", () => {
-  // 都会被匹配为 false
-  // const test = false;
-  // const test = null;
-  const test = undefined;
-  expect(test).toBeFalsy();
+test("404 test", () => {
+  return expect(notFoundTest()).rejects.toThrow();
 });
 
-test("to be truthry ", () => {
-  const test = true;
-  expect(test).toBeTruthy();
+test("Await test", async () => {
+  await expect(returnPromise()).resolves.toMatchObject({
+    data: {
+      id: 1, // if contains id is good enough
+    },
+  });
 });
 
-/**
- * Not
- */
-test("not", () => {
-  const test = false;
-  expect(test).not.toBeTruthy();
+test("Await test", async () => {
+  const response = await returnPromise();
+  expect(response.data).toMatchObject({
+    id: 1,
+  });
 });
 
-/**
- * number
- */
-test("to be greater than", () => {
-  const counter = 10;
-  expect(counter).toBeGreaterThan(9);
+test("Await test", async () => {
+  const response = await returnPromise();
+  expect(response.data).toMatchObject({
+    id: 1,
+  });
 });
 
-test("to be less than", () => {
-  const counter = 10;
-  expect(counter).toBeGreaterThanOrEqual(10);
-});
-
-test("to be less than", () => {
-  const counter = 10;
-  expect(counter).toBeLessThanOrEqual(11);
-});
-
-/**
- * String
- */
-test("toMatch", () => {
-  // 是不是包涵
-  expect("helloworld").toMatch("hello");
-});
-
-/**
- * Array
- */
-test("to contain", () => {
-  const arr = ["hello", "world"];
-  expect(arr).toContain("hello");
-});
-
-/**
- * Throw
- * Note: 测试 toThrow 的时候，没有加括号
- * Have to match the content of the error message
- */
-test("to throw", () => {
-  expect(toThrow).toThrow('this is a error');
+test("Await test 2", async () => {
+  // expect.assertions(1);
+  try {
+    await notFoundTest();
+  } catch (error) {
+    const msg = error.message;
+    expect(msg.indexOf(404) > -1).toBeFalsy();
+  }
 });
