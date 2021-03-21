@@ -1,17 +1,23 @@
-import axios from "axios";
+class Counter {
+  constructor(){
+    this.number = 0;
+  }
 
-export const fetchData = (fn) => {
-  axios
-    .get("https://jsonplaceholder.typicode.com/todos/1")
-    .then((resp) => fn(resp.data));
-};
+  add(){
+    this.number += 1;
+  }
 
-export const returnPromise = (fn) => {
-    return axios
-      .get("https://jsonplaceholder.typicode.com/todos/1")
-  };
+  minus(){
+    this.number -= 1;
+  }
 
-  export const notFoundTest = () => {
-    return axios
-      .get("https://jsonplaceholder.typicode.com/todos/x")
-  };
+  addTwo(){
+    this.number += 2;
+  }
+
+  minusTwo(){
+    this.number -= 2;
+  }
+}
+
+export default Counter;

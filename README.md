@@ -1,22 +1,14 @@
-### 异步测试
-#### Isue: The async function is not run until the call back, the process is finished. 
-Solve: use done to solve the issue. 
+### 钩子函数
 
-#### Catch is special case 
-use `expect.assertions(1);`
-if use catch, you need to use 
-**expect.asseration(1) **
-to make sure at least one expect should be run
+#### beforeAll
 
-#### expect().resolves.toMatchObject()
-Check if the data return contains this block of data
+#### beforeEach
 
-#### expect().rejects.toThrow()
-This request will throw an error, a way to relace the expect.asserations(1)
+#### afterEach
 
+#### afterAll
 
-#### await 
-Just added the await before the expect for handing function that returns promise 
+#### describe 
 
-#### try catch 
- add `expect.assertions(1)` just in case
+#### describe 的注意点
+如果是describe 里面潜逃 describe，比如一个 describe 下面有多个 describe, 那么会先去执行所有的 子 describe 里面的所有的代码，然后再去执行父类 describe 里面的钩子函数
