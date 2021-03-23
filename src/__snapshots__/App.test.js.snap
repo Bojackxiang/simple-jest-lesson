@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 的测试 1`] = `
+<div
+  className="app"
+  data-test="container"
+  title="wrapper"
+>
+  hello world!
+</div>
+`;
