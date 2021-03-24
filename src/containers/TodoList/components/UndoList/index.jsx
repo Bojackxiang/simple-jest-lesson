@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./style.css";
 class UndoList extends Component {
   constructor(props) {
     super(props);
@@ -10,21 +10,23 @@ class UndoList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="undo_list_wrapper">
         <h2>Todo list {this.props.list.length}</h2>
-        <ul>
+        <ul className="list-group">
           {this.props.list.map((item, index) => {
             return (
               <li key={index}>
-                <div>
-                  <span data-test="item">{item}</span>
+                <div className="undo_list_item">
+                  <button
+                    data-test="delete-btn"
+                    onClick={() => this.props.delete(index)}
+                  >
+                    delete
+                  </button>
+                  <div style={{ display: "inline-block", marginLeft: 30 }}>
+                    <h4 data-test="item">{item}</h4>
+                  </div>
                 </div>
-                <button
-                  data-test="delete-btn"
-                  onClick={() => this.props.delete(index)}
-                >
-                  delete
-                </button>
               </li>
             );
           })}

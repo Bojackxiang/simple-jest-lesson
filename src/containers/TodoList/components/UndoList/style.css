@@ -1,0 +1,19 @@
+.undo_list_wrapper {
+  background-color: "red";
+  width: 600;
+  margin: 0 auto;
+  min-height: 500;
+  width: 600px;
+}
+
+.list-group {
+  list-style: none;
+}
+
+.undo_list_item {
+  font-size: 16;
+  width: 100%;
+  background-color: antiquewhite;
+  border-bottom: 3px solid green;
+  margin-bottom: 20px;
+}
