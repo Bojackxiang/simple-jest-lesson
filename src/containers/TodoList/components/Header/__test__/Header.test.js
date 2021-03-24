@@ -1,6 +1,11 @@
 import { shallow } from "enzyme";
 import Header from "../Header";
 
+test("[Header] snapshot test", () => {
+  const wrapper = shallow(<Header/>)
+  expect(wrapper).toMatchSnapshot()
+})
+
 test("[Header] should have an input element", () => {
   const wrapper = shallow(<Header />);
   const input = wrapper.find(dataTestName("input"));

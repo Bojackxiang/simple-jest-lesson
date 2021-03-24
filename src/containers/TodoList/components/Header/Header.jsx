@@ -1,5 +1,6 @@
+import classes from "*.module.css";
 import React, { Component } from "react";
-
+import "./style.css";
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -23,9 +24,9 @@ export default class Header extends Component {
     if (e.keyCode === 13 && this.state.value) {
       this.props.addUndoItem(value);
       this.setState({
-        ...this.state, 
-        value: ''
-      })
+        ...this.state,
+        value: "",
+      });
     }
   }
 
@@ -35,15 +36,15 @@ export default class Header extends Component {
 
   render() {
     return (
-      <>
+      <div className="header">
+        <h3>Todo</h3>
         <input
           data-test="input"
           value={this.state.value}
           onChange={this.handleInputChange}
           onKeyUp={this.handleKeyUp}
         />
-        <button title="click me" onClick={() => this.passValue("hello")} />
-      </>
+      </div>
     );
   }
 }
