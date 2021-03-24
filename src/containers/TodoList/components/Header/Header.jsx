@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { changeInputValue } from "../../store/actions";
 
 import "./style.css";
- class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.passValue = this.passValue.bind(this);
-    
+
     this.state = {
       value: "",
     };
@@ -43,8 +44,8 @@ import "./style.css";
           <h3>Todo</h3>
           <input
             data-test="input"
-            value={this.state.value}
-            onChange={this.handleInputChange}
+            value={this.props.value}
+            onChange={(e) => this.props.handleInputChange(e.target.value)}
             onKeyUp={this.handleKeyUp}
           />
         </div>
@@ -54,11 +55,15 @@ import "./style.css";
 }
 
 const mapState = (state) => {
-  return {}
-}
+  return {
+    value: state.todo.inputValue,
+  };
+};
 
-const mapDispatch = dispatch => ({
-  
-})
+const mapDispatch = (dispatch) => ({
+  handleInputChange(value) {
+    dispatch(changeInputValue(value));
+  },
+});
 
-export default connect(mapState, mapDispatch)(Header)
+export default connect(mapState, mapDispatch)(Header);
