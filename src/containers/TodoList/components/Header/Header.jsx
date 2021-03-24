@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import "./style.css";
-export default class Header extends Component {
+ class Header extends Component {
   constructor(props) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,3 +52,13 @@ export default class Header extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {}
+}
+
+const mapDispatch = dispatch => ({
+  
+})
+
+export default connect(mapState, mapDispatch)(Header)
