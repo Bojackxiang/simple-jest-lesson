@@ -15,7 +15,7 @@ class UndoList extends Component {
         <ul className="list-group">
           {this.props.list.map((item, index) => {
             return (
-              <li key={index}>
+              <li key={index} data-test="list-item">
                 <div className="undo_list_item">
                   <button
                     data-test="delete-btn"
