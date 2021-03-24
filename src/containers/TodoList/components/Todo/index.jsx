@@ -5,16 +5,21 @@ export default class Todo extends Component {
   constructor(props) {
     super(props);
     this.updateList = this.updateList.bind(this);
+    this.delete = this.delete.bind(this);
     this.state = {
-      undoList: [],
+      list: [],
     };
   }
 
   updateList(value) {
-    console.log(this.state);
     this.setState({
-      ...this.state,
-      undoList: [...this.state.undoList, value],
+      list: [...this.state.list, value]
+    })
+  }
+
+  delete(indexValue) {
+    this.setState({
+      undoList: this.state.list.splice(indexValue, 1),
     });
   }
 
@@ -22,7 +27,7 @@ export default class Todo extends Component {
     return (
       <>
         <Header updateList={this.updateList} />
-        <UndoList list={[]}/>
+        <UndoList list={this.state.list} delete={this.delete} />
       </>
     );
   }

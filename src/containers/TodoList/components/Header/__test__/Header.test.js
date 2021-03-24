@@ -94,4 +94,5 @@ test("[Header] when press enter, the input should be cleared", (done) => {
   done();
 });
 
+
 export const dataTestName = (name) => `[data-test="${name}"]`;
