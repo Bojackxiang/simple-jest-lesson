@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import Header from './components/Header/Header'
+import Todo from './components/Todo'
+
 
 export default class TodoList extends Component {
   render() {
     return (
       <>
-        <Header/>
+        <Todo/>
       </>
     )
   }

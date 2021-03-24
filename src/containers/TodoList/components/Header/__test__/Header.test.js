@@ -57,7 +57,7 @@ test("[Header] when press enter, if not value should do nothing", (done) => {
 
 test("[Header] when press enter, fu should be triggered", (done) => {
   const fn = jest.fn();
-  const wrapper = shallow(<Header addUndoItem={fn} />);
+  const wrapper = shallow(<Header updateList={fn} />);
   const input = wrapper.find(dataTestName("input"));
   const value = "hello";
   wrapper.setState({
@@ -75,7 +75,7 @@ test("[Header] when press enter, fu should be triggered", (done) => {
 
 test("[Header] when press enter, the input should be cleared", (done) => {
   const fn = jest.fn();
-  const wrapper = shallow(<Header addUndoItem={fn} />);
+  const wrapper = shallow(<Header updateList={fn} />);
   const input = wrapper.find(dataTestName("input"));
   const value = "hello";
   wrapper.setState({

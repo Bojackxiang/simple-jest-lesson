@@ -10,6 +10,7 @@ export default class Todo extends Component {
   }
 
   updateList(value) {
+    console.log(this.state);
     this.setState({
       ...this.state,
       undoList: [...this.state.undoList, value],

@@ -4,14 +4,18 @@ exports[`[Header] snapshot test 1`] = `
 <div
   className="header"
 >
-  <h3>
-    Todo
-  </h3>
-  <input
-    data-test="input"
-    onChange={[Function]}
-    onKeyUp={[Function]}
-    value=""
-  />
+  <div
+    className="header-content"
+  >
+    <h3>
+      Todo
+    </h3>
+    <input
+      data-test="input"
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      value=""
+    />
+  </div>
 </div>
 `;

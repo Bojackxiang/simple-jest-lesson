@@ -1,4 +1,3 @@
-import classes from "*.module.css";
 import React, { Component } from "react";
 import "./style.css";
 export default class Header extends Component {
@@ -22,7 +21,7 @@ export default class Header extends Component {
   handleKeyUp(e) {
     const { value } = this.state;
     if (e.keyCode === 13 && this.state.value) {
-      this.props.addUndoItem(value);
+      this.props.updateList(value);
       this.setState({
         ...this.state,
         value: "",
@@ -37,13 +36,15 @@ export default class Header extends Component {
   render() {
     return (
       <div className="header">
-        <h3>Todo</h3>
-        <input
-          data-test="input"
-          value={this.state.value}
-          onChange={this.handleInputChange}
-          onKeyUp={this.handleKeyUp}
-        />
+        <div className="header-content">
+          <h3>Todo</h3>
+          <input
+            data-test="input"
+            value={this.state.value}
+            onChange={this.handleInputChange}
+            onKeyUp={this.handleKeyUp}
+          />
+        </div>
       </div>
     );
   }
