@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
+import UndoList from "../UndoList";
 export default class Todo extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ export default class Todo extends Component {
     return (
       <>
         <Header updateList={this.updateList} />
+        <UndoList list={[]}/>
       </>
     );
   }

@@ -6,6 +6,7 @@ export default class Header extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.passValue = this.passValue.bind(this);
+    
     this.state = {
       value: "",
     };
