@@ -10,7 +10,7 @@ describe("[Todo]", () => {
     expect(header).not.toBeUndefined();
     expect(UndoList).not.toBeUndefined();
 
-    expect(header.length).toBe(1);
+    // expect(header.length).toBe(1);
     expect(UndoList.length).toBe(1);
   });
 

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import UndoList from "../UndoList";
@@ -9,6 +10,20 @@ export default class Todo extends Component {
     this.state = {
       list: [],
     };
+  }
+
+  componentDidMount(){
+    const url = 'https://jsonplaceholder.typicode.com/posts/1'
+    axios.get(url).then(res => {
+      const content = res.data.title
+      console.log(content);
+      this.setState({
+        ...state,
+        list: [...state.list, content]
+      })
+    }).catch(e => {
+      
+    })
   }
 
   updateList(value) {
