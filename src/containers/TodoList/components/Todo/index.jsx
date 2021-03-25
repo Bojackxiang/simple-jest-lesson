@@ -16,10 +16,9 @@ export default class Todo extends Component {
     const url = 'https://jsonplaceholder.typicode.com/posts/1'
     axios.get(url).then(res => {
       const content = res.data.title
-      console.log(content);
       this.setState({
-        ...state,
-        list: [...state.list, content]
+        ...this.state,
+        list: [...this.state.list, content]
       })
     }).catch(e => {
       
