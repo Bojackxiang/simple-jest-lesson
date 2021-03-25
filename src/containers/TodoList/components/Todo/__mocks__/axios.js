@@ -1,7 +1,8 @@
 const response = {
     data: {
         title: 'mock test title'
-    }
+    },
+    success: false
 }
 
 
@@ -9,8 +10,9 @@ const response = {
 export default {
     get(url){
         return new Promise((resolve, reject) => {
+            if(!response.success) reject(response)
             resolve(response)
-        })
+        }) 
     }
         
 }

@@ -21,7 +21,7 @@ export default class Todo extends Component {
         list: [...this.state.list, content]
       })
     }).catch(e => {
-      
+      console.log(e);
     })
   }
 
